@@ -1,16 +1,15 @@
 #!/bin/bash
 #prompted CLI for scanning
 echo "Target IP?"
-read $target
+read target
 echo "Speed (1-5)?"
-read $speed
+read speed
 echo "(c)ommon or (f)ull port range?"
-read $range
+read range
 if [ "$range" = "f" ]; then
     echo "chose full"
+    nmap -sV -T$speed -p- $target > scan_result.txt
 else
     echo "chose common"
+    nmap -sV -T$speed $target > scan_result.txt
 fi
-echo "target" $target
-echo "speed" $speed
-echo "range" $range
