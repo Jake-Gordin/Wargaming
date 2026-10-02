@@ -8,9 +8,8 @@ echo "(c)ommon or (f)ull port range?"
 read range
 if [ "$range" = "f" ]; then
     echo "Scanning full port range..."
-    $newRange = "-p-"
+    nmap -sV -T$speed -p- $target > scan_result.txt
 else
     echo "Scanning common port range..."
-    $newRange = ""
+    nmap -sV -T$speed $target > scan_result.txt
 fi
-nmap -sV -T$speed $newRange $target > scan_result.txt
