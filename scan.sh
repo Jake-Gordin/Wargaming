@@ -7,9 +7,10 @@ read speed
 echo "(c)ommon or (f)ull port range?"
 read range
 if [ "$range" = "f" ]; then
-    echo "chose full"
-    nmap -sV -T$speed -p- $target > scan_result.txt
+    echo "Scanning full port range..."
+    $range = "-p-"
 else
-    echo "chose common"
-    nmap -sV -T$speed $target > scan_result.txt
+    echo "Scanning common port range..."
+    $range = ""
 fi
+nmap -sV -T$speed $range $target > scan_result.txt
