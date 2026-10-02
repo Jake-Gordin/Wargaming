@@ -6,8 +6,11 @@ echo "Speed (1-5)?"
 read $speed
 echo "(c)ommon or (f)ull port range?"
 read $range
-if [$range = "f"]; then
+if [ "$range" = "f" ]; then
     echo "chose full"
 else
     echo "chose common"
 fi
+echo "target" $target
+echo "speed" $speed
+echo "range" $range
