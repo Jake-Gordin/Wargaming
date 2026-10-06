@@ -10,4 +10,5 @@ if [ "$sizeChoice" = "m" ]; then
 else
     $list = "directory-list-2.3-small.txt"
 fi
-gobuster dir --url $target --wordlist $listdir$list | tee dirbust_result.txt
+$listFormat = $listDir $list
+gobuster dir --url $target --wordlist $listFormat | tee dirbust_result.txt
