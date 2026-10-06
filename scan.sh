@@ -1,7 +1,8 @@
 #!/bin/bash
 #prompted CLI for scanning
-echo "Target IP?"
-read target
+#echo "Target IP?"
+#read targetip
+targetip=$(< ./targetip.txt)
 #echo "Speed (1-5)?"
 #read speed
 #echo "(c)ommon or (f)ull port range?"
@@ -15,8 +16,8 @@ if [ "$scriptChoice" = "y" ]; then
 fi
 if [ "$range" = "f" ]; then
     echo "Scanning full port range..."
-    nmap -sV $scripts -T$speed -p- $target | tee scan_result.txt
+    nmap -sV $scripts -T$speed -p- $targetip | tee scan_result.txt
 else
     echo "Scanning common port range..."
-    nmap -sV $scripts -T$speed $target | tee scan_result.txt
+    nmap -sV $scripts -T$speed $targetip | tee scan_result.txt
 fi
