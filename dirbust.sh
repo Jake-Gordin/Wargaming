@@ -11,4 +11,4 @@ else
     list="directory-list-2.3-small.txt"
 fi
 listFormat=$listDir$list
-gobuster dir --url $target --wordlist $listFormat | tee dirbust_result.txt
+gobuster dir --url $target --wordlist $listFormat -x php,html | tee dirbust_result.txt
