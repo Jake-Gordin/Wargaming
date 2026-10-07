@@ -5,12 +5,12 @@
 targetip=$(< ./targetip.txt)
 echo "enum (1)dirs or (2)subdomains?"
 read modeChoice
-echo "(s)mall or (m)edium wordlist?"
-read sizeChoice
-listDir="/usr/share/wordlists/dirbuster/"
 #start mode
 if [ $modeChoice = 1 ]; then
     #enum dirs
+    echo "(s)mall or (m)edium wordlist?"
+    read sizeChoice
+    listDir="/usr/share/wordlists/dirbuster/"
     if [ "$sizeChoice" = "m" ]; then
         list="directory-list-2.3-medium.txt"
     else
@@ -23,4 +23,3 @@ elif [$modeChoice = 2]; then
     targetURL=$(< ./targeturl.txt)
     gobuster vhost -w /opt/useful/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u $targetURL
 fi
-
