@@ -18,8 +18,10 @@ if [ $modeChoice = 1 ]; then
     fi
     listFormat=$listDir$list
     gobuster dir --url $targetip --wordlist $listFormat -x php,html | tee dirbust_result.txt
-elif [ $modeChoice = 2 ] then
+elif [ $modeChoice = 2 ]; then
     #enum subdomains
     targetURL=$(< ./targeturl.txt)
     gobuster vhost -w /opt/useful/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u $targetURL
+else
+    #nothing!
 fi
