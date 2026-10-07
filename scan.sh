@@ -15,9 +15,6 @@ if [ "$scriptChoice" = "y" ]; then
     scripts="-sC"
 fi
 if [ "$range" = "f" ]; then
-    echo "Scanning full port range..."
-    nmap -sV $scripts -T$speed -p- $targetip | tee scan_result.txt
-else
-    echo "Scanning common port range..."
-    nmap -sV $scripts -T$speed $targetip | tee scan_result.txt
+    range="-p-"
 fi
+nmap -sV $scripts -T$speed $range $targetip | tee port_enum.txt
