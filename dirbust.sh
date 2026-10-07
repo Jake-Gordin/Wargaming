@@ -32,5 +32,5 @@ elif [ $modeChoice = 2 ]; then
     listDir="/opt/useful/seclists/Discovery/DNS/subdomains-top1million-"
     listFormat=$listDir$list
     targetURL=$(< ./targeturl.txt)
-    gobuster vhost -w $listFormat -u $targetURL | tee subdomain_enum.txt
+    gobuster vhost -w $listFormat -u $targetURL --append-domain | tee subdomain_enum.txt
 fi
