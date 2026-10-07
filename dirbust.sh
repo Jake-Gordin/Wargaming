@@ -22,6 +22,4 @@ elif [ $modeChoice = 2 ]; then
     #enum subdomains
     targetURL=$(< ./targeturl.txt)
     gobuster vhost -w /opt/useful/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u $targetURL
-else
-    #nothing!
 fi
